@@ -1,0 +1,48 @@
+<%= form_with(model: main) do |form| %>
+  <% if main.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(main.errors.count, "error") %> prohibited this main from being saved:</h2>
+
+      <ul>
+        <% main.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :Character, style: "display: block" %>
+    <%= form.text_field :Character, class: "form control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Win_rate, style: "display: block" %>
+    <%= form.text_field :Win_rate, class: "form control"  %> 
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Best_Stage, style: "display: block" %>
+    <%= form.text_field :Best_Stage, class: "form control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Worst_Stage, style: "display: block" %>
+    <%= form.text_field :Worst_Stage, class: "form control" %>
+  </div> 
+
+  <div class="form-group">
+    <%= form.label :Worst_Stage, style: "display: block" %>
+    <%= form.text_field :Worst_Stage, class: "form control" %>
+  </div> 
+  <% if current_user %>
+    <%= form.number_field :user_id, id: :main_user_id, class: "form-control", value: current_user.id, type: "hidden" %>
+  <% end %>
+  
+  <br>
+  <br>
+
+  <div class="form-group">
+    <%= form.submit class: "btn btn-secondary" %>
+  </div>
+<% end %>
