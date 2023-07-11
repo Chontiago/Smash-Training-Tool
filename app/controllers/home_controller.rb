@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   end
 
-  def main
+  def mains 
 
   end
 end
